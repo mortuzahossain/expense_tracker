@@ -2,19 +2,29 @@ class AppUser {
   final String uid;
   final String name;
   final String email;
+  final String? profileImageUrl;
 
-  AppUser({required this.uid, required this.name, required this.email});
+  AppUser({
+    required this.uid,
+    required this.name,
+    required this.email,
+    this.profileImageUrl,
+  });
 
   factory AppUser.fromMap(Map<String, dynamic> data, String documentId) {
-    final String name = data['name'];
-    final String email = data['email'];
-    return AppUser(uid: documentId, name: name, email: email);
+    return AppUser(
+      uid: documentId,
+      name: data['name'],
+      email: data['email'],
+      profileImageUrl: data['profileImageUrl'],
+    );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'name': name,
       'email': email,
+      'profileImageUrl': profileImageUrl,
     };
   }
 }

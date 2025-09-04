@@ -80,4 +80,33 @@ class AuthService with ChangeNotifier {
       rethrow;
     }
   }
+
+  Future<void> refreshUser() async {
+    if (firebaseUser != null) {
+      await _onAuthStateChanged(firebaseUser);
+    }
+  }
+
+  Future<void> reauthenticate(String password) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user == null) {
+        throw Exception('No user is currently signed in.');
+      }
+      final cred = auth.EmailAuthProvider.credential(email: user.email!, password: password);
+      await user.reauthenticateWithCredential(cred);
+    } catch (e) {
+      print('Reauthentication failed: $e');
+      rethrow;
+    }
+  }
+
+  Future<void> deleteCurrentUser() async {
+    try {
+      await _firebaseAuth.currentUser?.delete();
+    } catch (e) {
+      print('Failed to delete user from auth: $e');
+      rethrow;
+    }
+  }
 }

@@ -16,6 +16,10 @@ dependencies:
   firebase_core: ^2.15.0
   firebase_auth: ^4.7.0
   cloud_firestore: ^4.8.0
+  firebase_storage: ^11.2.6
+
+  # Image
+  image_picker: ^1.0.4
 
   # Video
   video_player: ^2.7.0
