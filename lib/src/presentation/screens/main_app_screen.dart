@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'dashboard_screen.dart';
-import 'transactions_screen.dart';
-import 'accounts_screen.dart';
 import 'categories_screen.dart';
 import 'budget_screen.dart';
-import 'reports_screen.dart'; // Import the new screen
+import 'reports_screen.dart';
 import 'settings_screen.dart';
 
 class MainAppScreen extends StatelessWidget {
@@ -20,14 +18,6 @@ class MainAppScreen extends StatelessWidget {
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.list_bullet),
-            label: 'Transactions',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.creditcard),
-            label: 'Accounts',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.tag),
             label: 'Categories',
           ),
@@ -36,7 +26,7 @@ class MainAppScreen extends StatelessWidget {
             label: 'Budget',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar_square), // Add reports icon
+            icon: Icon(CupertinoIcons.chart_bar_square),
             label: 'Reports',
           ),
           BottomNavigationBarItem(
@@ -53,25 +43,17 @@ class MainAppScreen extends StatelessWidget {
             });
           case 1:
             return CupertinoTabView(builder: (context) {
-              return const TransactionsScreen();
+              return const CategoriesScreen();
             });
           case 2:
             return CupertinoTabView(builder: (context) {
-              return const AccountsScreen();
+              return const BudgetScreen();
             });
           case 3:
             return CupertinoTabView(builder: (context) {
-              return const CategoriesScreen();
+              return const ReportsScreen();
             });
           case 4:
-            return CupertinoTabView(builder: (context) {
-              return const BudgetScreen();
-            });
-          case 5:
-            return CupertinoTabView(builder: (context) {
-              return const ReportsScreen(); // Add reports screen
-            });
-          case 6:
             return CupertinoTabView(builder: (context) {
               return const SettingsScreen();
             });
