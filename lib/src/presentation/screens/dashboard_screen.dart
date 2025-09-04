@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'add_edit_transaction_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -11,7 +12,12 @@ class DashboardScreen extends StatelessWidget {
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
-            // TODO: Navigate to Add Transaction screen
+            Navigator.of(context).push(
+              CupertinoPageRoute(
+                fullscreenDialog: true,
+                builder: (context) => const AddEditTransactionScreen(),
+              ),
+            );
           },
           child: const Icon(CupertinoIcons.add),
         ),
