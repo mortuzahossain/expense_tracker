@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'src/presentation/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,14 +16,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: CupertinoColors.systemBlue,
       ),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: Text('Expense Tracker'),
-        ),
-        child: Center(
-          child: Text('Dashboard'),
-        ),
-      ),
+      home: const SplashScreen(),
     );
   }
 }
