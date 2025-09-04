@@ -59,7 +59,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
   }
 
   Widget _buildFilterChips() {
-    final filters = ['All', 'Bank', 'Cash', 'Wallet'];
+    final filters = ['All', 'Bank', 'Cash', 'Wallet', 'Savings'];
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SingleChildScrollView(
