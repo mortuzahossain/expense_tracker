@@ -89,4 +89,13 @@ class FirestoreService {
   Future<DocumentSnapshot> getVideoDocumentSnapshot(String videoId) async {
     return _firestore.collection(_videosCollection).doc(videoId).get();
   }
+
+  Future<void> deleteVideo(String videoId) async {
+    try {
+      await _firestore.collection(_videosCollection).doc(videoId).delete();
+    } catch (e) {
+      print('Error deleting video: $e');
+      rethrow;
+    }
+  }
 }

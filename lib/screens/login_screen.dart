@@ -63,6 +63,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: const Text('Don\'t have an account? Register'),
               ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ForgotPasswordScreen(),
+                  ));
+                },
+                child: const Text('Forgot Password?'),
+              ),
               if (_error.isNotEmpty)
                 Text(
                   _error,
